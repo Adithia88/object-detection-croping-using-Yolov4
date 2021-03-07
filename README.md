@@ -55,7 +55,7 @@ If you want to use yolov4-tiny.weights, a smaller model that is faster at runnin
 
 <strong>Watch me Walk-Through using Custom Model in TensorFlow :https://www.youtube.com/watch?v=nOIVxi5yurE </strong>
 
-USE MY LICENSE PLATE TRAINED CUSTOM WEIGHTS: https://drive.google.com/file/d/1EUPtbtdF0bjRtNjGv436vDY28EN5DXDH/view?usp=sharing
+CUSTOM WEIGHTS For nutrition facts: https://drive.google.com/file/d/1Jjx1-HiGhGJ8CcLLt3IqJYlFAEzDrP5W/view?usp=sharing
 
 Copy and paste your custom .weights file into the 'data' folder and copy and paste your custom .names into the 'data/classes/' folder.
 
