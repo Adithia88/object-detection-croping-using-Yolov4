@@ -70,4 +70,4 @@ I have created a custom function within the file [core/functions.py](https://git
 python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --images ./data/images/dog.jpg --crop
 ```
  Here is an example of one of the resulting cropped detections from the above command.
- <p align="center"><img src="data/helpers/crop_example.png" height="250"\></p>
+ <p align="center"><img src="detection/nf/BOX_1.png" height="250"\></p>
