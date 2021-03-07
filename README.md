@@ -1,21 +1,7 @@
 # yolov4-custom-functions
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
-A wide range of custom functions for YOLOv4, YOLOv4-tiny, YOLOv3, and YOLOv3-tiny implemented in TensorFlow, TFLite and TensorRT.
 
-DISCLAIMER: This repository is very similar to my repository: [tensorflow-yolov4-tflite](https://github.com/theAIGuysCode/tensorflow-yolov4-tflite). I created this repository to explore coding custom functions to be implemented with YOLOv4, and they may worsen the overal speed of the application and make it not optimized in respect to time complexity. So if you want to run the most optimal YOLOv4 code with TensorFlow than head over to my other repository. This one is to explore cool customizations and applications that can be created using YOLOv4!
 
-### Demo of Object Counter Custom Function in Action!
-<p align="center"><img src="data/helpers/object_counter.gif"\></p>
-
-## Currently Supported Custom Functions and Flags
-* [x] [Counting Objects (total objects and per class)](#counting)
-* [x] [Print Info About Each Detection (class, confidence, bounding box coordinates)](#info)
-* [x] [Crop Detections and Save as New Image](#crop)
-* [x] [License Plate Recognition Using Tesseract OCR](#license)
-* [x] [Apply Tesseract OCR to Detections to Extract Text](#ocr)
-
-If there is a custom function you want to see created then create an issue in the issues tab and suggest it! If enough people suggest the same custom function I will add it quickly!
 
 ## Getting Started
 ### Conda (Recommended)
@@ -51,9 +37,6 @@ Copy and paste yolov4.weights from your downloads folder into the 'data' folder 
 If you want to use yolov4-tiny.weights, a smaller model that is faster at running detections but less accurate, download file here: https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights
 
 ## Using Custom Trained YOLOv4 Weights
-<strong>Learn How To Train Custom YOLOv4 Weights here: https://www.youtube.com/watch?v=mmj3nxGT2YQ </strong>
-
-<strong>Watch me Walk-Through using Custom Model in TensorFlow :https://www.youtube.com/watch?v=nOIVxi5yurE </strong>
 
 CUSTOM WEIGHTS For nutrition facts: https://drive.google.com/file/d/1Jjx1-HiGhGJ8CcLLt3IqJYlFAEzDrP5W/view?usp=sharing
 
@@ -65,45 +48,7 @@ Update the code to point at your custom .names file as seen below. (my custom .n
 
 <strong>Note:</strong> If you are using the pre-trained yolov4 then make sure that line 14 remains <strong>coco.names</strong>.
 
-## YOLOv4 Using Tensorflow (tf, .pb model)
-To implement YOLOv4 using TensorFlow, first we convert the .weights into the corresponding TensorFlow model files and then run the model.
-```bash
-# Convert darknet weights to tensorflow
-## yolov4
-python save_model.py --weights ./data/yolov4.weights --output ./checkpoints/yolov4-416 --input_size 416 --model yolov4 
 
-# Run yolov4 tensorflow model
-python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --images ./data/images/kite.jpg
-
-# Run yolov4 on video
-python detect_video.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --video ./data/video/video.mp4 --output ./detections/results.avi
-
-# Run yolov4 on webcam
-python detect_video.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --video 0 --output ./detections/results.avi
-```
-If you want to run yolov3 or yolov3-tiny change ``--model yolov3`` and .weights file in above commands.
-
-<strong>Note:</strong> You can also run the detector on multiple images at once by changing the --images flag like such ``--images "./data/images/kite.jpg, ./data/images/dog.jpg"``
-
-### Result Image(s) (Regular TensorFlow)
-You can find the outputted image(s) showing the detections saved within the 'detections' folder.
-#### Pre-trained YOLOv4 Model Example
-<p align="center"><img src="data/helpers/result.png" width="640"\></p>
-
-### Result Video
-Video saves wherever you point --output flag to. If you don't set the flag then your video will not be saved with detections on it.
-<p align="center"><img src="data/helpers/demo.gif"\></p>
-
-## YOLOv4-Tiny using TensorFlow
-The following commands will allow you to run yolov4-tiny model.
-```
-# yolov4-tiny
-python save_model.py --weights ./data/yolov4-tiny.weights --output ./checkpoints/yolov4-tiny-416 --input_size 416 --model yolov4 --tiny
-
-# Run yolov4-tiny tensorflow model
-python detect.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --images ./data/images/kite.jpg --tiny
-```
-<a name="custom"/>
 
 ## Custom YOLOv4 Using TensorFlow
 The following commands will allow you to run your custom yolov4 model. (video and webcam commands work as well)
