@@ -60,60 +60,7 @@ python save_model.py --weights ./data/custom.weights --output ./checkpoints/cust
 python detect.py --weights ./checkpoints/custom-416 --size 416 --model yolov4 --images ./data/images/car.jpg
 ```
 
-#### Custom YOLOv4 Model Example (see video link above to train this model)
-<p align="center"><img src="data/helpers/custom_result.png" width="640"\></p>
 
-## Custom Functions and Flags
-Here is how to use all the currently supported custom functions and flags that I have created.
-
-<a name="counting"/>
-
-### Counting Objects (total objects or per class)
-I have created a custom function within the file [core/functions.py](https://github.com/theAIGuysCode/yolov4-custom-functions/blob/master/core/functions.py) that can be used to count and keep track of the number of objects detected at a given moment within each image or video. It can be used to count total objects found or can count number of objects detected per class.
-
-#### Count Total Objects
-To count total objects all that is needed is to add the custom flag "--count" to your detect.py or detect_video.py command.
-```
-# Run yolov4 model while counting total objects detected
-python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --images ./data/images/dog.jpg --count
-```
-Running the above command will count the total number of objects detected and output it to your command prompt or shell as well as on the saved detection as so:
-<p align="center"><img src="data/helpers/total_count.png" width="640"\></p>
-
-#### Count Objects Per Class
-To count the number of objects for each individual class of your object detector you need to add the custom flag "--count" as well as change one line in the detect.py or detect_video.py script. By default the count_objects function has a parameter called <strong>by_class</strong> that is set to False. If you change this parameter to <strong>True</strong> it will count per class instead.
-
-To count per class make detect.py or detect_video.py look like this:
-<p align="center"><img src="data/helpers/by_class_config.PNG" width="640"\></p>
-
-Then run the same command as above:
-```
-# Run yolov4 model while counting objects per class
-python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --images ./data/images/dog.jpg --count
-```
-Running the above command will count the number of objects detected per class and output it to your command prompt or shell as well as on the saved detection as so:
-<p align="center"><img src="data/helpers/perclass_count.png" width="640"\></p>
-
-<strong>Note:</strong> You can add the --count flag to detect_video.py commands as well!
-
-<a name="info"/>
-
-### Print Detailed Info About Each Detection (class, confidence, bounding box coordinates)
-I have created a custom flag called <strong>INFO</strong> that can be added to any detect.py or detect_video.py commands in order to print detailed information about each detection made by the object detector. To print the detailed information to your command prompt just add the flag `--info` to any of your commands. The information on each detection includes the class, confidence in the detection and the bounding box coordinates of the detection in xmin, ymin, xmax, ymax format.
-
-If you want to edit what information gets printed you can edit the <strong>draw_bbox</strong> function found within the [core/utils.py](https://github.com/theAIGuysCode/yolov4-custom-functions/blob/master/core/utils.py) file. The line that prints the information looks as follows:
-<p align="center"><img src="data/helpers/info_details.PNG" height="50"\></p>
-
-Example of info flag added to command:
-```
-python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --images ./data/images/dog.jpg --info
-```
-Resulting output within your shell or terminal:
-<p align="center"><img src="data/helpers/info_output.PNG" height="100"\></p>
-
-<strong>Note:</strong> You can add the --info flag to detect_video.py commands as well!
-
-<a name="crop"/>
 
 ### Crop Detections and Save Them as New Images
 I have created a custom function within the file [core/functions.py](https://github.com/theAIGuysCode/yolov4-custom-functions/blob/master/core/functions.py) that can be applied to any detect.py or detect_video.py commands in order to crop the YOLOv4 detections and save them each as their own new image. To crop detections all you need to do is add the `--crop` flag to any command. The resulting cropped images will be saved within the <strong>detections/crop/</strong> folder.
