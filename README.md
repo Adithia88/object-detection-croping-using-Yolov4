@@ -1,7 +1,10 @@
 # yolov4-custom-functions
 
+## If u want to try with this dataset (nutrition facts)
 
+Download this repo + this checkpoints : https://drive.google.com/drive/folders/1g68yGVf2k3Xg2CubhorVQIKYeD9Doko0?usp=sharing
 
+and put checkpoints folder in main path (together with core etc)
 
 ## Getting Started
 ### Conda (Recommended)
